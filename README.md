@@ -5,7 +5,7 @@ jui_alert
 
 Usage:
 
-<code>
+<pre>
 $("#element_id").jui_alert({
     message: 'your message',
     timeout: 3000,  // 0 cancels timer
@@ -15,7 +15,7 @@ $("#element_id").jui_alert({
     class_btn_cancel_timer_add: 'ui-icon ui-icon-pin-w', // default
     class_alert: 'ui-state-highlight ui-corner-all'  // default
 })
-</code>
+</pre>
 
 Default css class need jquery-ui Themes CSS.
 
