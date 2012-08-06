@@ -9,12 +9,11 @@ Usage:
 ---
 
 <p>HTML</p>
-<pre><code>
-<link rel="stylesheet" href="/path/to/jqueryui_theme/jquery-ui.css">
-<script type="text/javascript" src="/path/to/jquery.js"></script>
-<script type="text/javascript" src="/path/to/jquery.jui_alert.js"></script>
-</code>
-</pre>
+
+    <link rel="stylesheet" href="/path/to/jqueryui_theme/jquery-ui.css">
+    <script type="text/javascript" src="/path/to/jquery.js"></script>
+    <script type="text/javascript" src="/path/to/jquery.jui_alert.js"></script>
+
 
 <p>JS code</p>
 <pre>
