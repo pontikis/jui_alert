@@ -9,13 +9,13 @@ Usage:
 ---
 
 <p>HTML</p>
-<pre>
+<code>
 <head>
     <link rel="stylesheet" href="/path/to/jqueryui_theme/jquery-ui.css">
     <script type="text/javascript" src="/path/to/jquery.js"></script>
     <script type="text/javascript" src="/path/to/jquery.jui_alert.js"></script>
 </head>
-</pre>
+</code>
 
 <p>JS code</p>
 <pre>
@@ -42,4 +42,4 @@ Default styling needs jquery-ui Themes CSS: http://jqueryui.com/docs/Theming
 Demo
 ---
 
-JSFIDDLE demo http://jsfiddle.net/pontikis/YXT3r/
+JSFIDDLE demo http://jsfiddle.net/pontikis/YXT3r/  (not working with Internet Explorer)
