@@ -1,14 +1,17 @@
 jui_alert
 =========
 
-<p>jui_alert is a jquery plugin which displays a user message (with timeout and close button)</p>
-<p>Copyright Christos Pontikis http://www.pontikis.gr License GPLv3</p>
+jui_alert is a jquery plugin which displays a user message (with timeout and close button)
+
+Copyright Christos Pontikis http://www.pontikis.gr License GPLv3
 
 Usage:
+---
 
 <p>HTML</p>
 <pre>
 <head>
+    <link rel="stylesheet" href="/path/to/jqueryui_theme/jquery-ui.css">
     <script type="text/javascript" src="/path/to/jquery.js"></script>
     <script type="text/javascript" src="/path/to/jquery.jui_alert.js"></script>
 </head>
@@ -35,5 +38,8 @@ $("#element_id").jui_alert({
 </pre>
 
 Default styling needs jquery-ui Themes CSS: http://jqueryui.com/docs/Theming
+
+Demo
+---
 
 JSFIDDLE demo http://jsfiddle.net/pontikis/YXT3r/
