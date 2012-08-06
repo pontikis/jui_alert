@@ -25,7 +25,7 @@
         var btn_close_id = 'jui_alert_btn_close_' + instance;
         var btn_cancel_timer_id = 'jui_alert_btn_cancel_timer_' + instance;
 
-        var html_btn_close = '<a id="' + btn_close_id + '"href="javascript:void(0);" class="' + options.class_btn_close + '" style="float: right;">close</a>';
+        var html_btn_close = '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + options.class_btn_close + '" style="float: right;">close</a>';
         var html_btn_clear_timer = '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + options.class_btn_cancel_timer + '" style="float: right;">clear timer</a>';
         if (options.timeout == 0) {
             html_btn_clear_timer = '';
