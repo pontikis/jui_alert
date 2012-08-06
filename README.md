@@ -18,6 +18,12 @@ Usage:
 <p>JS code</p>
 
     $("#element_id").jui_alert({
+        message: 'your message'
+    })
+
+Detailed syntax:
+
+    $("#element_id").jui_alert({
         message: 'your message',
         timeout: 3000,  // 0 cancels timer
         class_btn_close: 'ui-icon ui-icon-closethick', // default
