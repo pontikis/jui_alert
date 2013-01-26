@@ -1,7 +1,9 @@
 jui_alert
 =========
 
-jui_alert is a jquery plugin which displays a user message (with timeout and close button)
+jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.
+
+Based on jQuery UI themes, so they are strongly recommended (but anyone could use its own css). jquery-ui.js is not required.
 
 Copyright Christos Pontikis http://www.pontikis.net License MIT
 

@@ -76,9 +76,9 @@
                 html += '<div class="' + settings.messageAreaClass + '">';
 
                 html += '<p class="' + settings.buttonsAreaClass + '">';
-                html += '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + settings.btnCloseClass + '">close</a>';
+                html += '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + settings.btnCloseClass + '" title="' + rsc_jui_alert.close + '">' + rsc_jui_alert.close + '</a>';
                 if (settings.timeout > 0) {
-                    html += '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + settings.btnTimerOnClass + '">clear timer</a>';
+                    html += '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + settings.btnTimerOnClass + '" title="' + rsc_jui_alert.freeze_message + '">' + rsc_jui_alert.freeze_message + '</a>';
                 }
                 html += '</p>';
 

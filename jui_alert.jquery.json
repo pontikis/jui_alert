@@ -1,6 +1,6 @@
 {
     "name": "jui_alert",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "title": "jQuery simple notification plugin",
     "author": {
         "name": "Christos Pontikis",
@@ -14,8 +14,7 @@
         }
     ],
     "dependencies": {
-        "jquery": ">=1.6",
-        "jquery-ui": ">=1.8"
+        "jquery": ">=1.6"
     },
     "description": "jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.",
     "homepage": "http://pontikis.net/labs/jui_alert",
