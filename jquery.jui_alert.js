@@ -91,6 +91,7 @@
                 html += '</div>';
 
                 elem.html(html);
+
                 var elem_btn_close = $("#" + btn_close_id);
                 var elem_btn_cancel_timer = $("#" + btn_cancel_timer_id);
 
@@ -106,9 +107,14 @@
 
                 elem_btn_cancel_timer.click(function() {
                     $(this).removeClass(settings.btnTimerOnClass).addClass(settings.btnTimerOffClass);
+                    $(this).prop("title", "");
                     clearTimeout(timer);
                 });
 
+                var effects = ["slide", "bounce", "shake", "pulsate"];
+                if($.inArray(settings.use_effect.effect_name, effects) > -1) {
+                    elem.effect(settings.use_effect.effect_name, settings.use_effect.effect_options, settings.use_effect.effect_duration);
+                }
 
             });
 
@@ -133,7 +139,9 @@
                 messageIconClass: "jui_alert_icon ui-icon ui-icon-info",
 
                 close_btn_id_prefix: "close_",
-                timer_btn_id_prefix: "cancel_timer_"
+                timer_btn_id_prefix: "cancel_timer_",
+
+                use_effect: ""  // one of "slide", "bounce", "shake", "pulsate" (http://jqueryui.com/effect)
             };
         },
 
