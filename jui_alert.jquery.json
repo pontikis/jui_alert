@@ -14,7 +14,8 @@
         }
     ],
     "dependencies": {
-        "jquery": ">=1.6"
+        "jquery": ">=1.6",
+        "jquery-ui": ">=1.8"
     },
     "description": "jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.",
     "homepage": "http://pontikis.net/labs/jui_alert",
@@ -22,8 +23,10 @@
     "demo": "http://pontikis.net/labs/jui_alert/demo",
     "download": "https://github.com/pontikis/jui_alert/archive/master.zip",
     "keywords": [
-        "alert",
         "notification",
+        "notify",
+        "alert",
+        "message",
         "themable",
         "jqueryui-themable",
         "ui"
