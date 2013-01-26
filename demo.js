@@ -10,7 +10,8 @@ $(function () {
         containerClass: "container2 ui-widget",
         message: "This is a sample message. It will not disappear automatically. More information <a href='http://www.google.com' target='_blank'>here</a>.",
         messageBodyClass: "message2",
-        timeout: 0
+        timeout: 0,
+        use_effect: {effect_name: "slide", effect_options: {"direction": "left"}, effect_duration: "500"}
     });
 
     $("#user_message3").jui_alert({
