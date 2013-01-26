@@ -1,0 +1,33 @@
+{
+    "name": "jui_alert",
+    "version": "1.0.1",
+    "title": "jQuery simple notification plugin",
+    "author": {
+        "name": "Christos Pontikis",
+        "email": "christos@pontikis.net",
+        "url": "http://pontikis.net"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/pontikis/jui_alert/master/MIT_LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.6",
+        "jquery-ui": ">=1.8"
+    },
+    "description": "jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.",
+    "homepage": "http://pontikis.net/labs/jui_alert",
+    "docs": "http://pontikis.net/labs/jui_alert/docs",
+    "demo": "http://pontikis.net/labs/jui_alert/demo",
+    "download": "https://github.com/pontikis/jui_alert/archive/master.zip",
+    "keywords": [
+        "alert",
+        "notification",
+        "themable",
+        "jqueryui-themable",
+        "ui"
+    ],
+    "bugs": "https://github.com/pontikis/jui_alert/issues"
+}
