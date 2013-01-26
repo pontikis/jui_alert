@@ -15,7 +15,7 @@ License [MIT][mit]
 
 
 Project page
------------
+------------
 [http://pontikis.net/labs/jui_alert][HOME]
 [HOME]: http://pontikis.net/labs/jui_alert
 
