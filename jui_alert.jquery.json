@@ -17,7 +17,7 @@
         "jquery": ">=1.6",
         "jquery-ui": ">=1.8"
     },
-    "description": "jQuery plugin, provides simple notification (with timeout and close button). jQuery UI themes compatible. Localization support.",
+    "description": "jquery plugin, provides simple notification (with timeout and close button). jQuery UI themes compatible. Localization support.",
     "homepage": "http://pontikis.net/labs/jui_alert",
     "docs": "http://pontikis.net/labs/jui_alert/docs",
     "demo": "http://pontikis.net/labs/jui_alert/demo",
