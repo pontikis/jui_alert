@@ -3,7 +3,7 @@ jui_alert
 
 jui_alert is a jquery plugin which displays a user message (with timeout and close button)
 
-Copyright Christos Pontikis http://www.pontikis.gr License GPLv3
+Copyright Christos Pontikis http://www.pontikis.net License MIT
 
 Usage:
 ---

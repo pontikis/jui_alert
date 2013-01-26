@@ -1,9 +1,9 @@
 /**
  * jquery plugin which displays a user message with timeout and close button
  * Requires jquery, jquery-ui Themes CSS
- * Copyright 2012 Christos Pontikis (http://www.pontikis.gr)
+ * Copyright 2012 Christos Pontikis (http://www.pontikis.net)
  * Project page https://github.com/pontikis/jui_alert
- * License GPLv3
+ * License MIT
  */
 (function ($) {
     $.fn.jui_alert = function (options) {
