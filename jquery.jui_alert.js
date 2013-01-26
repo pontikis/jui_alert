@@ -5,7 +5,7 @@
  *               <br />Project page <a href="http:///pontikis.net/labs/jui_alert">http://pontikis.net/labs/jui_alert</a>
  * @version 2.0.0 (26 Jan 2013)
  * @author Christos Pontikis http://pontikis.net
- * @requires jquery (>=1.6), jquery-ui css (recommended)
+ * @requires jquery (>=1.6), jquery-ui (>=1.8)
  */
 
 /**
