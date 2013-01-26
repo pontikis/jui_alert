@@ -5,7 +5,7 @@
  *               <br />Project page <a href="http:///pontikis.net/labs/jui_alert">http://pontikis.net/labs/jui_alert</a>
  * @version 1.0.1 (26 Jan 2013)
  * @author Christos Pontikis http://pontikis.net
- * @requires jquery (>=1.6), jquery-ui (>=1.8)
+ * @requires jquery (>=1.6), jquery-ui css (recommended)
  */
 
 /**
@@ -72,12 +72,11 @@
                 elem.removeClass().addClass(settings.containerClass);
 
 
-
                 html += '<div class="' + settings.messageAreaClass + '">';
 
                 html += '<p class="' + settings.buttonsAreaClass + '">';
                 html += '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + settings.btnCloseClass + '" title="' + rsc_jui_alert.close + '">' + rsc_jui_alert.close + '</a>';
-                if (settings.timeout > 0) {
+                if(settings.timeout > 0) {
                     html += '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + settings.btnTimerOnClass + '" title="' + rsc_jui_alert.freeze_message + '">' + rsc_jui_alert.freeze_message + '</a>';
                 }
                 html += '</p>';
@@ -86,7 +85,7 @@
                 if(settings.messageIconClass) {
                     html += '<span class="' + settings.messageIconClass + '"></span>';
                 }
-                html +=   settings.message;
+                html += settings.message;
                 html += '</p>';
 
                 html += '</div>';
@@ -95,17 +94,17 @@
                 var elem_btn_close = $("#" + btn_close_id);
                 var elem_btn_cancel_timer = $("#" + btn_cancel_timer_id);
 
-                if (settings.timeout > 0) {
-                    timer = setTimeout(function () {
+                if(settings.timeout > 0) {
+                    timer = setTimeout(function() {
                         elem_btn_close.click();
                     }, settings.timeout);
                 }
 
-                elem_btn_close.click(function () {
+                elem_btn_close.click(function() {
                     elem.html('');
                 });
 
-                elem_btn_cancel_timer.click(function () {
+                elem_btn_cancel_timer.click(function() {
                     $(this).removeClass(settings.btnTimerOnClass).addClass(settings.btnTimerOffClass);
                     clearTimeout(timer);
                 });
