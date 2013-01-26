@@ -1,5 +1,5 @@
 /**
- * @fileOverview jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.
+ * @fileOverview jquery plugin, provides simple notification (with timeout and close button). jQuery UI themes compatible.
  *               <p>License MIT
  *               <br />Copyright 2012 Christos Pontikis <a href="http://pontikis.net">http://pontikis.net</a>
  *               <br />Project page <a href="http:///pontikis.net/labs/jui_alert">http://pontikis.net/labs/jui_alert</a>
