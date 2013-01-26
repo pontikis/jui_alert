@@ -3,7 +3,7 @@
  *               <p>License MIT
  *               <br />Copyright 2012 Christos Pontikis <a href="http://pontikis.net">http://pontikis.net</a>
  *               <br />Project page <a href="http:///pontikis.net/labs/jui_alert">http://pontikis.net/labs/jui_alert</a>
- * @version 1.0.1 (26 Jan 2013)
+ * @version 2.0.0 (26 Jan 2013)
  * @author Christos Pontikis http://pontikis.net
  * @requires jquery (>=1.6), jquery-ui css (recommended)
  */
