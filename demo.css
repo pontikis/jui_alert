@@ -1,0 +1,20 @@
+.container1 {
+    width: 40%;
+    margin: 20px;
+}
+
+.container2 {
+    width: 50%;
+    margin: 20px;
+}
+
+.container3 {
+    width: 60%;
+    margin: 20px;
+}
+
+.message2 {
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+}

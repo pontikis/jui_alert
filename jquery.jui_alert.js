@@ -1,72 +1,245 @@
 /**
- * jquery plugin which displays a user message with timeout and close button
- * Requires jquery, jquery-ui Themes CSS
- * Copyright 2012 Christos Pontikis (http://www.pontikis.net)
- * Project page https://github.com/pontikis/jui_alert
- * License MIT
+ * @fileOverview jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.
+ *               <p>License MIT
+ *               <br />Copyright 2012 Christos Pontikis <a href="http://pontikis.net">http://pontikis.net</a>
+ *               <br />Project page <a href="http:///pontikis.net/labs/jui_alert">http://pontikis.net/labs/jui_alert</a>
+ * @version 1.0.1 (26 Jan 2013)
+ * @author Christos Pontikis http://pontikis.net
+ * @requires jquery (>=1.6), jquery-ui (>=1.8)
  */
-(function ($) {
-    $.fn.jui_alert = function (options) {
 
-        var defaults = {
-            timeout: 2500,
-            class_btn_close: 'ui-icon ui-icon-closethick',
-            class_btn_cancel_timer: 'ui-icon ui-icon-pin-s',
-            class_btn_cancel_timer_remove: 'ui-icon-pin-s',
-            class_btn_cancel_timer_add: 'ui-icon-pin-w',
-            class_icon: 'ui-icon ui-icon-alert',
-            class_widget: 'ui-widget',
-            class_alert: 'ui-state-error ui-corner-all',
-            style_message: 'text-align: left; margin-top: 10px; margin-bottom: 10px;',
-            style_icon: 'float: left; margin-top: 3px; margin-right: 5px;',
-            style_alert: 'padding: 0 .7em;',
-            style_btn_close: 'float: right;',
-            style_btn_cancel_timer: 'float: right;'
-        };
+/**
+ * See <a href="http://jquery.com">http://jquery.com</a>.
+ * @name $
+ * @class
+ * See the jQuery Library  (<a href="http://jquery.com">http://jquery.com</a>) for full details.  This just
+ * documents the function and classes that are added to jQuery by this plug-in.
+ */
 
-        var options = $.extend(defaults, options);
+/**
+ * See <a href="http://jquery.com">http://jquery.com</a>
+ * @name fn
+ * @class
+ * See the jQuery Library  (<a href="http://jquery.com">http://jquery.com</a>) for full details.  This just
+ * documents the function and classes that are added to jQuery by this plug-in.
+ * @memberOf $
+ */
 
-        var message_tm;
+/** the foolowing is OPTIONAL in case private methods will be documented  */
+/**
+ * Pseudo-Namespace containing private methods (for documentation purposes)
+ * @name _private_methods
+ * @namespace
+ */
+"use strict";
+(function($) {
 
-        var instance = $("[id*=jui_alert_btn_close_]").length;
-        var btn_close_id = 'jui_alert_btn_close_' + instance;
-        var btn_cancel_timer_id = 'jui_alert_btn_cancel_timer_' + instance;
+    var pluginName = 'jui_alert';
 
-        var html1 = '<div class="' + options.class_alert + '" style="' + options.style_alert + '">';
-        var html2 = '<p style="' + options.style_message + '"><span class="' + options.class_icon + '" style="' + options.style_icon + '"></span>';
-        var html3 = '</p>';
-        var html4 = '</div>';
+    /* public methods ------------------------------------------------------- */
+    var methods = {
 
-        var html_btn_close = '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + options.class_btn_close + '" style="' + options.style_btn_close + '">close</a>';
-        var html_btn_clear_timer = '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + options.class_btn_cancel_timer + '" style="' + options.style_btn_cancel_timer + '">clear timer</a>';
-        if (options.timeout == 0) {
-            html_btn_clear_timer = '';
+        /**
+         * @lends $.fn.jui_alert
+         */
+        init: function(options) {
+
+            var elem = this;
+
+            return this.each(function() {
+
+                /**
+                 * settings and defaults
+                 * using $.extend, settings modification will affect elem.data() and vice versa
+                 */
+                var settings = elem.data(pluginName);
+                if(typeof(settings) == 'undefined') {
+                    var defaults = elem.jui_alert('getDefaults');
+                    settings = $.extend({}, defaults, options);
+                } else {
+                    settings = $.extend({}, settings, options);
+                }
+                elem.data(pluginName, settings);
+
+                var container_id = elem.attr("id");
+
+                var timer;
+                var btn_close_id = create_id(settings.close_btn_id_prefix, container_id);
+                var btn_cancel_timer_id = create_id(settings.timer_btn_id_prefix, container_id);
+
+                var html = '';
+
+                elem.removeClass().addClass(settings.containerClass);
+
+
+
+                html += '<div class="' + settings.messageAreaClass + '">';
+
+                html += '<p class="' + settings.buttonsAreaClass + '">';
+                html += '<a id="' + btn_close_id + '" href="javascript:void(0);" class="' + settings.btnCloseClass + '">close</a>';
+                if (settings.timeout > 0) {
+                    html += '<a id="' + btn_cancel_timer_id + '" href="javascript:void(0);" class="' + settings.btnTimerOnClass + '">clear timer</a>';
+                }
+                html += '</p>';
+
+                html += '<p class="' + settings.messageBodyClass + '">';
+                if(settings.messageIconClass) {
+                    html += '<span class="' + settings.messageIconClass + '"></span>';
+                }
+                html +=   settings.message;
+                html += '</p>';
+
+                html += '</div>';
+
+                elem.html(html);
+                var elem_btn_close = $("#" + btn_close_id);
+                var elem_btn_cancel_timer = $("#" + btn_cancel_timer_id);
+
+                if (settings.timeout > 0) {
+                    timer = setTimeout(function () {
+                        elem_btn_close.click();
+                    }, settings.timeout);
+                }
+
+                elem_btn_close.click(function () {
+                    elem.html('');
+                });
+
+                elem_btn_cancel_timer.click(function () {
+                    $(this).removeClass(settings.btnTimerOnClass).addClass(settings.btnTimerOffClass);
+                    clearTimeout(timer);
+                });
+
+
+            });
+
+        },
+
+        /**
+         * Get default values
+         * @example $(element).jui_alert('getDefaults');
+         * @return {Object}
+         */
+        getDefaults: function() {
+            return {
+                timeout: 2500,
+
+                containerClass: "ui-widget",
+                buttonsAreaClass: "jui_alert_buttons_p",
+                btnCloseClass: "jui_alert_btn_close ui-icon ui-icon-closethick",
+                btnTimerOnClass: "jui_alert_btn_timer ui-icon ui-icon-pin-w",
+                btnTimerOffClass: "jui_alert_btn_timer ui-icon ui-icon-pin-s",
+                messageAreaClass: "jui_alert_message_area ui-state-highlight ui-corner-all",
+                messageBodyClass: "jui_alert_message_body",
+                messageIconClass: "jui_alert_icon ui-icon ui-icon-info",
+
+                close_btn_id_prefix: "close_",
+                timer_btn_id_prefix: "cancel_timer_"
+            };
+        },
+
+        /**
+         * Get any option set to plugin using its name (as string)
+         * @example $(element).jui_alert('getOption', some_option);
+         * @param {String} opt
+         * @return {*}
+         */
+        getOption: function(opt) {
+            var elem = this;
+            return elem.data(pluginName)[opt];
+        },
+
+        /**
+         * Get all options
+         * @example $(element).jui_alert('getAllOptions');
+         * @return {*}
+         */
+        getAllOptions: function() {
+            var elem = this;
+            return elem.data(pluginName);
+        },
+
+        /**
+         * Set option
+         * @example $(element).jui_alert('setOption', 'option_name',  'option_value',  reinit);
+         * @param {String} opt option names
+         * @param val
+         * @param {Boolean} reinit
+         */
+        setOption: function(opt, val, reinit) {
+            var elem = this;
+            elem.data(pluginName)[opt] = val;
+            if(reinit) {
+                elem.jui_alert('init');
+            }
+        },
+
+        /**
+         * Refresh plugin
+         * @example $(element).jui_alert('refresh');
+         * @return {*|jQuery}
+         */
+        refresh: function() {
+            var elem = this;
+            elem.jui_alert();
+        },
+
+        /**
+         * Destroy plugin
+         * @example $(element).jui_alert('destroy');
+         * @return {*|jQuery}
+         */
+        destroy: function() {
+            return $(this).each(function() {
+                var $this = $(this);
+
+                $this.removeData(pluginName);
+            });
+        }
+    };
+
+    /* private methods ------------------------------------------------------ */
+    /** the foolowing is OPTIONAL in case private methods will be documented  */
+
+    /**
+     * @lends _private_methods
+     */
+
+    /**
+     * Create element id
+     * @param prefix
+     * @param plugin_container_id
+     * @return {*}
+     */
+    var create_id = function(prefix, plugin_container_id) {
+        return prefix + plugin_container_id;
+    };
+
+
+    /**
+     * jui_alert: jquery plugin provides simple notification (with timeout and close button). jQuery UI themes compatible.
+     *
+     * @class jui_alert
+     * @memberOf $.fn
+     */
+    $.fn.jui_alert = function(method) {
+
+        // OPTIONAL
+        if(this.size() != 1) {
+            var err_msg = 'You must use this plugin (' + pluginName + ') with a unique element (at once)';
+            this.html('<span style="color: red;">' + 'ERROR: ' + err_msg + '</span>');
+            $.error(err_msg);
         }
 
-        return this.each(function () {
-            obj = $(this);
-            var current_obj_id = $(this).attr("id");
-
-            obj.addClass(options.class_widget);
-            obj.html(html1 + html_btn_close + html_btn_clear_timer + html2 + options.message + html3 +html4);
-
-            if (options.timeout > 0) {
-                message_tm = setTimeout(function () {
-                    $("#" + btn_close_id).click();
-                }, options.timeout);
-            }
-
-            $("#" + btn_close_id).click(function () {
-                $("#" + current_obj_id).removeClass(options.class_alert);
-                $("#" + current_obj_id).html('');
-            });
-
-            $("#" + btn_cancel_timer_id).click(function () {
-                $("#" + btn_cancel_timer_id).removeClass(options.class_btn_cancel_timer_remove).addClass(options.class_btn_cancel_timer_add);
-                clearTimeout(message_tm);
-            });
-
-        });
+        // Method calling logic
+        if(methods[method]) {
+            return methods[ method ].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if(typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exist on jQuery.' + pluginName);
+        }
 
     };
+
 })(jQuery);

@@ -1,64 +1,30 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
     <title>jui_alert demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <link rel="stylesheet"
-          href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="normalize.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    <link rel="stylesheet"
+          href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css">
+
+    <link rel="stylesheet" href="jquery.jui_alert.css">
+
+    <link rel="stylesheet" href="demo.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.0.js"
             type="text/javascript"></script>
 
     <script src="jquery.jui_alert.js" type="text/javascript"></script>
 
-    <script type="text/javascript"
-            src="http://jqueryui.com/themeroller/themeswitchertool/">
-    </script>
-
-    <script type="text/javascript">
-        $(function () {
-            $("#user_message1").jui_alert({
-                message: 'This is a sample message. It will disappear after 6 sec (except you press the pin button)',
-                timeout: 6000
-            });
-
-            $("#user_message2").jui_alert({
-                message: 'This is a sample message. It will not disappear automatically.',
-                timeout: 0
-            });
-
-            $("#user_message3").jui_alert({
-                message: 'This is a sample message. It will disappear after 3 sec (except you press the pin button)',
-                timeout: 3000
-            });
-
-            $('#switcher').themeswitcher();
-        });
-
-    </script>
-
-    <style type="text/css">
-        #user_message1, #user_message2, #user_message3 {
-            width: 30%;
-            clear: both;
-            margin-bottom: 40px;
-        }
-    </style>
-
+    <script src="demo.js" type="text/javascript"></script>
 </head>
 <body>
-
-<div id="switcher" style="margin-bottom: 20px;"></div>
 
 <div id="user_message1"></div>
 <div id="user_message2"></div>
 <div id="user_message3"></div>
-
-Project page: <a href="https://github.com/pontikis/jui_alert">https://github.com/pontikis/jui_alert</a>
-<br/>
-JSFIDDLE demo <a href="http://jsfiddle.net/pontikis/YXT3r/">http://jsfiddle.net/pontikis/YXT3r/</a> (not working with Internet Explorer)
 
 </body>
 </html>
