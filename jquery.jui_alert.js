@@ -102,6 +102,7 @@
                 }
 
                 elem_btn_close.click(function() {
+                    elem.removeClass();
                     elem.html('');
                 });
 
